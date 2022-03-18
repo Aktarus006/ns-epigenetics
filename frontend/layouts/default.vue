@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <HeaderSection />
-    <section p="t-24" bg="teal-300">
+    <section p="t-24">
       <slot />
     </section>
   </div>
