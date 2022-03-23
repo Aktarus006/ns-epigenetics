@@ -1,6 +1,7 @@
-<script setup lang="ts">import { StrapiEmailConfirmationData } from '@nuxtjs/strapi/dist/runtime/types'
+<script setup lang="ts">
 
 const user = useStrapiUser()
+const router = useRouter()
 const { login, logout } = useStrapiAuth()
 
 const loading = ref(false)
@@ -11,10 +12,19 @@ const onSubmit = async() => {
 
   try {
     await login(form)
+    router.push('/authenticated')
   }
   catch (e) {}
 
   loading.value = false
+}
+
+const onLogout = async() => {
+  try {
+    await logout()
+    router.push('/')
+  }
+  catch (e) {}
 }
 
 </script>
@@ -28,20 +38,15 @@ const onSubmit = async() => {
         </nuxt-link>
       </li>
       <li text="xl teal-800" font="bold" transition="colors" hover="text-teal-500" class="tracking-tighter">
-        <nuxt-link to="/">
-          Shop
-        </nuxt-link>
-      </li>
-      <li text="xl teal-800" font="bold" transition="colors" hover="text-teal-500" class="tracking-tighter">
-        <nuxt-link to="/">
-          Contact
+        <nuxt-link to="/authenticated">
+          Auth
         </nuxt-link>
       </li>
     </ul>
 
     <div v-if="user">
       <h2>{{ user['username'] }}</h2>
-      <button type="button" @click="logout">
+      <button type="button" @click="onLogout">
         Logout
       </button>
     </div>

@@ -6,9 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from './store/authStore'
 
-const user = useUserStore()
+const user = useStrapiUser()
 
 </script>
 

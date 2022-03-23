@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxtjs/strapi',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
   ],
 
   unocss: {
