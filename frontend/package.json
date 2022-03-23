@@ -5,6 +5,11 @@
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
   },
+  "dependencies": {
+    "@headlessui/vue": "^1.5.0",
+    "@pinia/nuxt": "^0.1.8",
+    "pinia": "^2.0.12"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.18.8",
     "@iconify-json/carbon": "^1.1.1",
